@@ -1,0 +1,150 @@
+﻿Case Study Leaderboard
+
+
+
+
+Please complete the following assignment with Javascript, for example: NodeJS, React, React Native, Typescript, VueJS. 
+
+
+Make sure your code is readable and maintainable. If you have any questions about the requirements, please let us know so we can clarify.
+
+
+We accept the submission as a ZIP file or a URL of your Git repository.
+
+
+Inputs of the program:
+
+
+* This JSON file with Ling users: This file is placed in the input folder
+* The ID of the current user (“currentUserId”).
+   * You can decide how to read the currentUserId. For example, as a parameter for a terminal program or as a parameter of the main function of your program. Please include instructions on how to run the program and how to pass the user ID.
+
+
+Note that the program should work correctly with any kind of currentUserId. If the currentUserId does not exist (i.e., it is not included in the JSON file), print out this error message: “Current user id does not exist! Please specify an existing user id!”
+
+
+Specs of the program:
+
+
+1. Print out a list of the 10 people with the most bananas. 
+2. Every entry of the list includes:
+* Name
+* Rank (1 for the highest number of bananas, 2 for the second highest, etc.)
+* Number of bananas
+* Is the user the current user? (true or false)
+3. The list is sorted by rank (1 first, 10 last).
+4. If the user with the currentUserId has enough bananas to appear in the top 10, keep the list as is. (see example case 1 below)
+5. If the user with the currentUserID has NOT enough bananas to appear in the top 10, do the following:
+Replace the user with the rank 10 by the current user. (see example case 2 below)
+________________
+
+
+Example input and output
+
+
+Case 1: Current user Berta Mcguirk is in the top 10
+
+
+Name
+	Rank
+	Number of bananas
+	isCurrentUser?
+	Shirley Kauffman
+	1
+	6609
+	no
+	Earleen Douse
+	2
+	1900
+	no
+	Sallie Procopio  
+	3
+	1232
+	no
+	Maxwell Cuadrado 
+	4
+	1000
+	no
+	Berta Mcguirk
+	5
+	932
+	yes
+	Valeria Dewey  
+	6
+	809
+	no
+	Remona Busse  
+	7
+	700
+	no
+	Daren Pierson  
+	8
+	700
+	no
+	Carlotta Pacetti
+	9
+	600
+	no
+	Dacia Reep  
+	10
+	578
+	no
+	
+
+Case 2: Current user Berta Mcguirk is NOT in the top 10
+
+
+Name
+	Rank
+	Number of bananas
+	isCurrentUser?
+	Shirley Kauffman
+	1
+	6609
+	no
+	Earleen Douse
+	2
+	1900
+	no
+	Sallie Procopio  
+	3
+	1232
+	no
+	Maxwell Cuadrado 
+	4
+	1000
+	no
+	Valeria Dewey  
+	5
+	809
+	no
+	Remona Busse  
+	6
+	700
+	no
+	Daren Pierson  
+	7
+	700
+	no
+	Carlotta Pacetti
+	8
+	600
+	no
+	Dacia Reep  
+	9
+	578
+	no
+	Berta Mcguirk
+	239
+	198
+	yes
+	
+
+Additional Task: 
+
+
+Please provide the contact details of 2 references that we can reach out to should you move forward in the interview process. References should be former bosses or supervisors. Please provide the following information:
+   * Name
+   * Role or how you know them
+   * Phone number
+   * Email address
