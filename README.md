@@ -59,6 +59,7 @@ node test.js
 
 In my case, the command line would look like this:
 ![image info](./pictures/runCommand.png)
+![image info](./pictures/runCommand_old.png)
 
 
 
