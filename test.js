@@ -5,9 +5,6 @@ const readline = require("readline");
 var currentUserID = ""
 
 
-
-
-//const currentUserID = prompt("Current user ID(zI4YDfQ5FXfVk48dEqqlr4CQiTw2): ");
 //const currentUserID = "zI4YDfQ5FXfVk48dEqqlr4CQiTw2";
 //const currentUserID = "zDHhDho9h5fTDntQhyEg66RMvqK2";
 
@@ -25,7 +22,6 @@ usersDataArray = Object.entries(usersData).map(function(entry){
 	value = entry[1];
 
 	nested_object = value;
-	//nested_object.key = key;
 
 	return nested_object;
 });
@@ -44,7 +40,7 @@ usersDataArray = usersDataArray.sort(function(a, b) {
 //adding rank
 usersDataArray.forEach((user,index) => {
 	user.rank = index +1;
-	///console.log(user);
+
 });
 
 
@@ -58,18 +54,18 @@ var usersDataArray10wCurrent;
 
 
 function checkUID(){
-	//usersDataArray10 = usersDataArray.slice(0, 10);
+	
 	
 	inDataBase = false;
 	for (i in usersDataArray){
 		if (usersDataArray[i].uid == currentUserID){
 			currentUser = usersDataArray[i];
-			//console.log("Nice");
+			
 			inDataBase = true;
 			usersDataArray10wCurrent = usersDataArray10.slice();  //new instance of userDataArray10Current; i.e. changes don't affect userDataArray10
 			if (currentUser.rank>10){
 				usersDataArray10wCurrent[9] = currentUser;
-				//console.log("New boi");
+				
 			}
 
 			usersDataArray10wCurrent.forEach((user,index) => {
@@ -139,9 +135,7 @@ var recursiveAsyncReadLine = function () {
 			console.log("\n");
 		}
 		else{console.log("Current user id does not exist! Please specify an existing user id!\n");}
-		//console.log("Closing the console");
-		//process.exit();
-		//prompt.close();
+
 		recursiveAsyncReadLine();
 	});
 
