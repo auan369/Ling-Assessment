@@ -111,7 +111,6 @@ function printTableData(){
 			p.addRow(usersDataArray10wCurrent[i],{ color: "red" });
 		}
 		else{p.addRow(usersDataArray10wCurrent[i]);}
-		
 	};
 	p.printTable();
 }

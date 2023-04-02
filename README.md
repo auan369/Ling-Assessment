@@ -8,8 +8,9 @@ In order to install this dependency, please run the following command in your co
 npm install console-table-printer --save
 ```
 ### Running the Code Without Console Table Printer
-In case installation of the Console Table Printer Library is not possible, please make the following changes to the code.
-Remove the comment markers(/* and */) for the section marked as "Start/End of display using normal Console"
+In case installation of the Console Table Printer Library is not possible, please make the following changes to the code. 
+
+Remove the comment markers (/* and */) for the section marked as "Start/End of display using normal Console"
 such that it resembles this:
 ```
 //---------------------------------Start of display using normal Console Table---------------------------------------------------
@@ -22,7 +23,7 @@ function printTableData(){
 
 ```
 
-Insert the comment markers(/* and */) for the section marked as "Start/End of display using Console Table Printer Library"
+Insert the comment markers (/* and */) for the section marked as "Start/End of display using Console Table Printer Library"
 such that it resembles this:
 ```
 //---------------------------------Start of display using Console Table Printer Library-------------------------------------------
@@ -33,6 +34,14 @@ function printTableData(){
 .
 .
 .
+.
+.
+.
+for (i in usersDataArray10wCurrent){
+		if (usersDataArray10wCurrent[i]["isCurrentUser?"] == "yes"){
+			p.addRow(usersDataArray10wCurrent[i],{ color: "red" });
+		}
+		else{p.addRow(usersDataArray10wCurrent[i]);}
 };
 	p.printTable();
 }
@@ -42,3 +51,16 @@ function printTableData(){
 
 ## Running the Code
 In order to run the program, please make a local copy of this directory.
+Navigate that the local directory and run the following commands:
+
+```
+node test.js
+```
+
+
+You will then be prompted for the user ID that you will want to check.
+For user not in the top 10 placement you may try
+    uid: zI4YDfQ5FXfVk48dEqqlr4CQiTw2
+
+For user in the top 10 placement you may try
+    uid: zDHhDho9h5fTDntQhyEg66RMvqK2
