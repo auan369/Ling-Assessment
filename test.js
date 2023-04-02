@@ -75,20 +75,51 @@ function checkUID(){
 			usersDataArray10wCurrent.forEach((user,index) => {
 				if (user.uid == currentUserID) {user["isCurrentUser?"] = "yes";}
 				else {user["isCurrentUser?"] = "no";}
-				///console.log(user);
+
 			});
 			break;
 		}
 	}	
-	//console.log("Naur");
+
 
 }
 
 
 
-//console.log(currentUser);
-//console.log(inTop10);
-//console.log(usersDataArray)
+//---------------------------------Start of display using nomral Console Table---------------------------------------------------
+/*
+function printTableData(){
+	console.table(usersDataArray10wCurrent,["name", "rank", "bananas", "bananas", "isCurrentUser?"]);
+};
+*/
+//---------------------------------End of display using nomral Console Table-----------------------------------------------------
+
+
+
+//---------------------------------Start of display using Console Table Printer Library-------------------------------------------
+//Documentation for Console Table Prnter Library: https://console-table.netlify.app/docs/
+const { Table } = require('console-table-printer');
+function printTableData(){
+	const p = new Table({
+		enabledColumns: ["name", "rank", "bananas", "isCurrentUser?"],
+		columns: [
+			{ name: "name", alignment: "left", title: "Name",},
+			{ name: "rank", alignment: "center", title: "Rank",},
+			{ name: "bananas", alignment: "center", title: "Number of bananas",},
+			{ name: "isCurrentUser?", alignment: "center", title: "isCurrentUser?",},
+		  ],
+	});
+	for (i in usersDataArray10wCurrent){
+		if (usersDataArray10wCurrent[i]["isCurrentUser?"] == "yes"){
+			p.addRow(usersDataArray10wCurrent[i],{ color: "red" });
+		}
+		else{p.addRow(usersDataArray10wCurrent[i]);}
+		
+	};
+	p.printTable();
+}
+
+//---------------------------------End of display using Console Table Printer Library---------------------------------------------
 
 
 
@@ -98,17 +129,13 @@ const prompt = readline.createInterface({
 	input: process.stdin,
 	output: process.stdout,
   });
-
-
-
-
 var recursiveAsyncReadLine = function () {
 	prompt.question("What is your user ID? \n", uidInput => {
 		console.log("Checking for uid: " + uidInput);
 		currentUserID = uidInput;	
 		checkUID();
 		if (inDataBase){
-			console.table(usersDataArray10wCurrent,["name", "rank", "bananas", "bananas", "isCurrentUser?"]);
+			printTableData();
 			console.log("\n");
 		}
 		else{console.log("Current user id does not exist! Please specify an existing user id!\n");}
@@ -120,77 +147,7 @@ var recursiveAsyncReadLine = function () {
 
 };
 
+
+//Calling the main function
 recursiveAsyncReadLine();
-//}
 
-/*
-console.log("Name\tRank\tNumber of Bananas\tisCurrentUser");
-for (i in usersDataArray10){
-	var isCurrentuser = "no";
-	if (usersDataArray10[i].uid == currentUserID){isCurrentuser = "yes";}
-	console.log(usersDataArray10[i].name + "\t", usersDataArray10[i].rank,usersDataArray10[i].bananas, isCurrentuser);
-}
-*/
-
-
-
-
-//console.table(usersDataArray10)
-
-
-//console.log(currentUser);
-//var inTop10 = false;
-//for (i in usersDataArray10){
-//	if (usersDataArray10[i].uid == currentUserID){
-//		inTop10 = true; 
-//		break;
-//	}
-//}
-
-
-/*
-var a = usersDataArray10.forEach((user,index) => {
-	//return [user.name, index+1, user.bananas];
-	console.log(user.name+"\t",user.rank, user.bananas);
-	data = user.bananas;
-	return data
-});
-
-console.log(usersDataArray10)
-*/
-
-
-//Extra stuff
-function initiate(){
-	
-	const object = { a: 1, b: 2, c: 3 };
-
-	for (const property in object) {
-	}
-	return [1,2,3,4];
-}
-
-
-
-
-function getInfoFromArray(){
-	var omg = initiate();
-	
-	document.getElementById("external").innerHTML = omg;
-}
-
-//initiate();
-
-
-
-
-
-function externalFunction() {
-	
-	var words = "Hi words"
-	document.getElementById("external").innerHTML = words;
-	
-	
-  }
-
-  
