@@ -1,8 +1,9 @@
 # Ling-Assessment
 This soluion is completed with Node.js.
+Done by: Loke Kum Yew
 
 ## Dependencies 
-Please note that this program utilises the Console Table Printer Library in order to better display the solution.
+Please note that this program utilises the [Console Table Printer Library](https://console-table.netlify.app/docs/) in order to better display the solution.
 In order to install this dependency, please run the following command in your command line:
 ```
 npm install console-table-printer --save
