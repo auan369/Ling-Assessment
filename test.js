@@ -82,18 +82,19 @@ function checkUID(){
 
 
 
-//---------------------------------Start of display using nomral Console Table---------------------------------------------------
+//---------------------------------Start of display using normal Console Table---------------------------------------------------
 /*
 function printTableData(){
 	console.table(usersDataArray10wCurrent,["name", "rank", "bananas", "bananas", "isCurrentUser?"]);
 };
 */
-//---------------------------------End of display using nomral Console Table-----------------------------------------------------
+//---------------------------------End of display using normal Console Table-----------------------------------------------------
 
 
 
 //---------------------------------Start of display using Console Table Printer Library-------------------------------------------
 //Documentation for Console Table Prnter Library: https://console-table.netlify.app/docs/
+
 const { Table } = require('console-table-printer');
 function printTableData(){
 	const p = new Table({
