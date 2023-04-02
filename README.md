@@ -57,10 +57,14 @@ Navigate that the local directory and run the following commands:
 node test.js
 ```
 
+In my case, the command line would look like this:
+![image info](./pictures/runCommand.png)
+
+
 
 You will then be prompted for the user ID that you will want to check.
-For user not in the top 10 placement you may try
-    uid: zI4YDfQ5FXfVk48dEqqlr4CQiTw2
+For user not in the top 10 placement you may try:
+uid: zI4YDfQ5FXfVk48dEqqlr4CQiTw2
 
 For user in the top 10 placement you may try
-    uid: zDHhDho9h5fTDntQhyEg66RMvqK2
+uid: zDHhDho9h5fTDntQhyEg66RMvqK2
