@@ -65,6 +65,7 @@ In my case, the command line would look like this:
 
 ## Using the Interface
 You will then be prompted for the user ID that you will want to check.
+![image info](./pictures/uidPrompt.png)
 
 For user in the top 10 placement you may try:
 
