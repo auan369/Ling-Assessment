@@ -80,6 +80,10 @@ Once you key in the correct uid and press enter, you will see the following:
 
 Note that the row with the currentUser ID will be in red.
 
+If you key in the an incorrect uid or a uid not in the json file, you will see this:
+![image info](./pictures/wrongUID.png)
+
+
 The program will keep prompting you for a new uid to query.
 
 Once done with the program, press CTRL + C on your keyboard to terminate the program.
