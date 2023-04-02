@@ -1,39 +1,25 @@
-//var testy = "absd";
-//document.write(testy);
-
-//document.getElementById("external").innerHTML = "test";
-	
+//Libaries for initalization	
 const fs = require('fs');
 const { connect } = require('http2');
 const readline = require("readline");
 var currentUserID = ""
 
-// Need to make display a function-------------------------------------
-// Need to check if current user in json a function-------------------------------------
-// Need to make update json a function a function-------------------------------------
-const prompt = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout,
-  });
 
-prompt.question("What is your name? \n", name => {
-	console.log(`Oh, so your name is ${name}`);
-	currentUserID = name;
-	console.log("Closing the console");
-	//process.exit();
-	prompt.close();
-});
+
 
 //const currentUserID = prompt("Current user ID(zI4YDfQ5FXfVk48dEqqlr4CQiTw2): ");
 //const currentUserID = "zI4YDfQ5FXfVk48dEqqlr4CQiTw2";
 //const currentUserID = "zDHhDho9h5fTDntQhyEg66RMvqK2";
 
+
+//Reading the json file
 const usersData = JSON.parse(fs.readFileSync('leaderboard.json'));
 
 
+
+
+//convering json file into an array to be sorted
 var usersDataArray = [];
-
-
 usersDataArray = Object.entries(usersData).map(function(entry){
 	key = entry[0];
 	value = entry[1];
@@ -49,24 +35,53 @@ usersDataArray = Object.entries(usersData).map(function(entry){
 
 
 
-
+//sorting array of user data
 usersDataArray = usersDataArray.sort(function(a, b) {
 	return b.bananas - a.bananas
 });
 
+
+//adding rank
 usersDataArray.forEach((user,index) => {
 	user.rank = index +1;
 	///console.log(user);
 });
 
-var currentUser = {};
-//var inTop10 = false;
 
-for (i in usersDataArray){
-	if (usersDataArray[i].uid == currentUserID){
-		currentUser = usersDataArray[i];
-		break;
-	}
+
+//initializing variables to store current user data and sliced arrays with top 10 users
+var currentUser = {};
+var inDataBase = false;
+var usersDataArray10 = usersDataArray.slice(0, 10);
+var usersDataArray10wCurrent;
+
+
+
+function checkUID(){
+	//usersDataArray10 = usersDataArray.slice(0, 10);
+	
+	inDataBase = false;
+	for (i in usersDataArray){
+		if (usersDataArray[i].uid == currentUserID){
+			currentUser = usersDataArray[i];
+			//console.log("Nice");
+			inDataBase = true;
+			usersDataArray10wCurrent = usersDataArray10.slice();  //new instance of userDataArray10Current; i.e. changes don't affect userDataArray10
+			if (currentUser.rank>10){
+				usersDataArray10wCurrent[9] = currentUser;
+				//console.log("New boi");
+			}
+
+			usersDataArray10wCurrent.forEach((user,index) => {
+				if (user.uid == currentUserID) {user["isCurrentUser?"] = "yes";}
+				else {user["isCurrentUser?"] = "no";}
+				///console.log(user);
+			});
+			break;
+		}
+	}	
+	//console.log("Naur");
+
 }
 
 
@@ -75,29 +90,54 @@ for (i in usersDataArray){
 //console.log(inTop10);
 //console.log(usersDataArray)
 
-var usersDataArray10 = usersDataArray.slice(0, 10);
-if (currentUser.rank>10){usersDataArray10[9] = currentUser};
 
 
+
+
+const prompt = readline.createInterface({
+	input: process.stdin,
+	output: process.stdout,
+  });
+
+
+
+
+var recursiveAsyncReadLine = function () {
+	prompt.question("What is your user ID? \n", uidInput => {
+		console.log("Checking for uid: " + uidInput);
+		currentUserID = uidInput;	
+		checkUID();
+		if (inDataBase){
+			console.table(usersDataArray10wCurrent,["name", "rank", "bananas", "bananas", "isCurrentUser?"]);
+			console.log("\n");
+		}
+		else{console.log("Current user id does not exist! Please specify an existing user id!\n");}
+		//console.log("Closing the console");
+		//process.exit();
+		//prompt.close();
+		recursiveAsyncReadLine();
+	});
+
+};
+
+recursiveAsyncReadLine();
+//}
+
+/*
 console.log("Name\tRank\tNumber of Bananas\tisCurrentUser");
 for (i in usersDataArray10){
 	var isCurrentuser = "no";
 	if (usersDataArray10[i].uid == currentUserID){isCurrentuser = "yes";}
 	console.log(usersDataArray10[i].name + "\t", usersDataArray10[i].rank,usersDataArray10[i].bananas, isCurrentuser);
 }
+*/
 
 
-for (i in usersDataArray10){
-	delete usersDataArray10[i].lastDayPlayed;
-	delete usersDataArray10[i].longestStreak;
-	delete usersDataArray10[i].stars;
-	delete usersDataArray10[i].subscribed;
-	delete usersDataArray10[i].regex;
-	
-}
 
 
-console.table(usersDataArray10)
+//console.table(usersDataArray10)
+
+
 //console.log(currentUser);
 //var inTop10 = false;
 //for (i in usersDataArray10){
