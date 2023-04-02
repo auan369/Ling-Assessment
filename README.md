@@ -66,19 +66,19 @@ In my case, the command line would look like this:
 ## Using the Interface
 You will then be prompted for the user ID that you will want to check.
 
-For user in the top 10 placement you may try
+For user in the top 10 placement you may try:
 
 - uid: zDHhDho9h5fTDntQhyEg66RMvqK2
 
-For user not in the top 10 placement you may try
+For user not in the top 10 placement you may try:
 
 - uid: zI4YDfQ5FXfVk48dEqqlr4CQiTw2
 
 Once you key in the correct uid and press enter, you will see the following:
 ![image info](./pictures/results.png)
 
-Note that the row with currentUserID will be in red.
+Note that the row with the currentUser ID will be in red.
 
-The program will keep prompting you with a new uid to query.
+The program will keep prompting you for a new uid to query.
 
 Once done with the program, press CTRL + C on your keyboard to terminate the program.
